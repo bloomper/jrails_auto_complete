@@ -19,10 +19,9 @@ module JrailsAutoCompleteMacroHelper
     js_options[:callback]   = "function(element, value) { return #{options[:with]} }" if options[:with]
     js_options[:indicator]  = "'#{options[:indicator]}'" if options[:indicator]
     js_options[:select]     = "'#{options[:select]}'" if options[:select]
-    js_options[:paramName]  = "'#{options[:param_name]}'" if options[:param_name]
+    js_options[:paramNames]  = array_or_string_for_javascript(options[:param_names]) if options[:param_names]
     js_options[:frequency]  = "#{options[:frequency]}" if options[:frequency]
     js_options[:defaultParams]  = "'#{options[:defaultParams]}'" if options[:defaultParams]
-    js_options[:multiple]   = "'#{options[:multiple]}'" if options[:multiple]
     js_options[:multipleSeparator]  = "'#{options[:multipleSeparator]}'" if options[:multipleSeparator]
 
     {:after_update_element => :afterUpdateElement, :on_show => :onShow, :on_hide => :onHide, :min_chars => :minChars}.each do |k, v|
